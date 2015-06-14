@@ -71,6 +71,7 @@ $(document).on("pageshow", "#livro-inserir", function(){
 
 $(document).on("pageshow", "#livro-detalhe", function(){
 	$("#reservar").removeClass("hidden");
+	$('#map_canvas').gmap('clear', 'markers');
 	if(sessionStorage.idLivro){
 		$.ajax({
 			type: "GET",
@@ -81,7 +82,7 @@ $(document).on("pageshow", "#livro-detalhe", function(){
 				$("#livro-detalhe-template").tmpl(response.livro).appendTo("#livro-detalhe-wrapper");
 				
 				$('#map_canvas').gmap('addMarker', { 'position': response.livro.biblioteca.localizacao, 'bounds': true }).click(function(){
-					$('#map_canvas').gmap('openInfoWindow', {'content': response.livro.nome}, this);
+					$('#map_canvas').gmap('openInfoWindow', {'content': response.livro.biblioteca.nome}, this);
 				});
 			}
 		});
