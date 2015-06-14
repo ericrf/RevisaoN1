@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <title>Alteração de Notícia</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/geral.js"></script>   
+    <script src="js/jquery.mobile-1.4.1.min.js"></script>   
+    <script src="js/jquery.tmpl.min.js"></script> 
+    <script src="js/noticias.js"></script> 
+    <link rel="stylesheet"  href="css/jquery.mobile-1.4.1.min.css" /> 
+</head>
+<body>
+	<div id="noticiaAlterarPage" data-role="page">
+        <div data-role="header">
+			<h1>Mobile com JSON</h1>
+			<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse"></a>
+        </div>
+
+        <div data-role="content">
+			
+			<div class="ui-body ui-body-c">
+                <form id="frmAlterarNoticia" method="post">
+                <input type="hidden" name="idNoticia" id="hdnIdNoticia"/>
+                    <div data-role="fieldcontain">
+                         <label for="titulo">Título:</label>
+                         <input type="text" name="titulo" id="txtTitulo" value=""  />
+                    </div>				
+                    <div data-role="fieldcontain">
+                         <label for="texto">Texto:</label>
+                         <textarea name="texto" id="txtTexto"></textarea>
+                    </div>				
+                    <div data-role="fieldcontain">
+                    	<input type="submit" name="cmdAlterar" value="Alterar"/>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div data-role="footer">
+        	<h4>Rodapé</h4>
+        </div>
+    
+    </div>
+</body>
+</html>

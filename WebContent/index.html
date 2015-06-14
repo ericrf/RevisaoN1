@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+<title>Revisão</title>
+
+<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>  
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/geral.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/jquery.mobile-1.4.1.min.js"></script>
+<script src="js/jquery.tmpl.min.js"></script>
+<script src="js/jquery.ui.map.full.min.js"></script> 
+<script src="js/index.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="css/jquery.mobile-1.4.1.min.css">
+<style>
+.hidden{display:none;}
+</style>
+
+<script id="livro-list-template" type="text/x-jquery-tmpl">
+	<li>
+		<a href="#livro-detalhe" onclick="sessionStorage.idLivro = ${id}"><span>${titulo}</span></a>
+	</li>
+</script>
+</head>
+<body>
+
+	<div id="principal" data-role="page">
+		<div data-role="header">
+			<h1>Livros</h1>
+			<a href="#livro-inserir" data-icon="plus" data-iconpos="notext">&nbsp;</a>
+		</div>
+		<div data-role="content">
+			<form>
+			  	<input type="text" data-type="search" id="livros-list-filter">
+			</form>
+			<form data-role="controlgroup" data-filter="true" data-input="#livros-list-filter">
+				<ul data-role="listview" data-inset="true" id="livros-list"></ul>
+			</form>
+		</div>
+
+		<div data-role="footer">
+			<a href="#livros-reservados" data-iconpos="notext">livros reservados</a>
+		</div>
+	</div>
+	
+	<div id="livros-reservados" data-role="page">
+		<div data-role="header">
+			<a href="#principal" data-icon="home" data-iconpos="notext">&nbsp;</a>
+			<h1>Livros Reservados</h1>
+		</div>
+		<div data-role="content">
+			<form>
+			  	<input type="text" data-type="search" id="livros-reservados-list-filter">
+			</form>
+			<form data-role="controlgroup" data-filter="true" data-input="#livros-reservados-list-filter">
+				<ul data-role="listview" data-inset="true" id="livros-reservados-list"></ul>
+			</form>
+		</div>
+	</div>
+	<div id="livro-inserir" data-role="page">
+		<div data-role="header">
+			<a href="#principal" data-icon="home" data-iconpos="notext">&nbsp;</a>
+			<h1>Inserir Livro</h1>
+		</div>
+		<div data-role="content">
+			<form onsubmit="return false;">
+				<div data-role="fieldcontain">
+		            <label for="livro.titulo">Titulo:</label>
+		            <input type="text" name="livro.titulo" value=""  />
+		        </div>
+		        <div data-role="fieldcontain">
+		            <label for="livro.autor">Autor:</label>
+		            <input type="text" name="livro.autor" value=""  />
+		        </div>
+		        <div data-role="fieldcontain">
+		            <label for="livro.descricao">Descricao:</label>
+		            <textarea rows="" cols="" name="livro.descricao"></textarea>
+		        </div>
+		        <div data-role="fieldcontain">
+		            <label for="livro.biblioteca.id">Biblioteca:</label>
+		            <select name="livro.biblioteca.id">
+		            	
+		            </select>
+		        </div>
+		        
+		        <button type="submit">Salvar</button>
+			</form>
+		</div>
+	</div>
+	
+	
+	
+	
+	<div id="livro-detalhe" data-role="page">
+		<div data-role="header">
+			<a href="#principal" data-icon="home" data-iconpos="notext">&nbsp;</a>
+			<h1>Livro Detalhes</h1>
+		</div>
+		<div data-role="content">
+			<script id="livro-detalhe-template" type="text/x-jquery-tmpl">
+				Titulo: ${titulo} <br/>
+  	      		Autor: ${autor} <br/>
+				Descri&#231;&#227;o: ${descricao} <br/>
+				Biblioteca : ${biblioteca.nome}
+
+	    	</script>
+	    	<div id="livro-detalhe-wrapper"></div>
+	    	
+	    	<div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
+                <div id="map_canvas" style="height:350px;"></div>
+            </div>
+            
+	    	<button id="reservar" class="ui-btn">Reservar</button>
+		</div>
+	</div>
+</body>
+</html>

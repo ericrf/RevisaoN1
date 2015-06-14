@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <title>Lista</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/geral.js"></script>   
+    <script src="js/jquery.mobile-1.4.1.min.js"></script>   
+    <script src="js/jquery.tmpl.min.js"></script> 
+    <script src="js/noticias.js"></script> 
+    <link rel="stylesheet"  href="css/jquery.mobile-1.4.1.min.css" /> 
+</head>
+<body>
+	<div id="noticiasPage" data-role="page">
+        <div data-role="header">
+			<h1>Mobile com JSON</h1>
+        </div>
+
+        <div data-role="content">
+        
+			<script id="noticiaTemplate" type="text/x-jquery-tmpl"> 
+				<li>
+					<a href="#" noticia-id="${idNoticia}">${titulo}</a>
+				</li>
+            </script>        
+        
+            <ul id="listNoticias" data-role="listview" data-inset="true">
+            </ul>
+        </div>
+
+        <div data-role="footer">
+        	<h4>Rodapé</h4>
+        </div>
+    
+    </div>
+</body>
+</html>

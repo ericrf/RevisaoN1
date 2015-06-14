@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <title>Lista</title>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/geral.js"></script>   
+    <script src="js/jquery.mobile-1.4.1.min.js"></script>   
+    <script src="js/jquery.tmpl.min.js"></script> 
+    <script src="js/noticias.js"></script> 
+    <link rel="stylesheet"  href="css/jquery.mobile-1.4.1.min.css" /> 
+</head>
+<body>
+
+	<div id="noticiaDetalhePage" data-role="page">
+        <div data-role="header">
+			<h1>Mobile com JSON</h1>
+			<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse"></a>
+        </div>
+
+		<script id="noticiaDetalheTemplate" type="text/x-jquery-tmpl"> 
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">${titulo}</li>
+                <li>
+                    <div>${texto}</div>
+                </li>
+            </ul>
+            
+            <a href="#" id="linkAlterar" noticia-id="${idNoticia}" 
+                        data-role="button" data-inline="true">Alterar</a>            
+            <a href="#" id="linkExcluir" noticia-id="${idNoticia}" 
+                        data-role="button" data-inline="true">Excluir</a>            
+        </script>	
+
+        <div id="noticiaDetalhe" data-role="content">
+        </div>
+
+        <div data-role="footer">
+        	<h4>Rodapé</h4>
+        </div>
+    
+    </div>
+</body>
+</html>
